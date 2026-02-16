@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+{% load static %}
+<head>
+<meta charset="UTF-8">
+<title>Авторизация — Misterium</title>
+
+<link rel="stylesheet" href="{% static 'game/styles/style.css' %}">
+<link rel="stylesheet" href="{% static 'game/styles/dark_style.css' %}">
+</head>
+
+<body>
+
+<div class="menu_bar">
+  <div class="navigation_bar">
+    <a href="{% url 'index' %}">Главная</a>
+  </div>
+</div>
+
+<div class="auth_page">
+
+<!-- LOGIN -->
+<div class="form_box" id="loginForm">
+  <div class="form_title">Авторизация</div>
+
+  <form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    <input name="username" placeholder="Логин" required>
+    <input type="password" name="password" placeholder="Пароль" required>
+    <button type="submit">Войти</button>
+  </form>
+
+  <div class="switch_btn" onclick="showRegister()">
+    Нет аккаунта
+  </div>
+</div>
+
+<!-- REGISTER -->
+<div class="form_box" id="registerForm" style="display:none;">
+  <div class="form_title">Регистрация</div>
+
+  <form method="post" action="{% url 'register' %}">
+    {% csrf_token %}
+    <input name="username" placeholder="Логин" required>
+    <input type="password" name="password1" placeholder="Пароль" required>
+    <input type="password" name="password2" placeholder="Повтор пароля" required>
+    <button type="submit">Создать аккаунт</button>
+  </form>
+
+  <div class="switch_btn" onclick="showLogin()">
+    Уже есть аккаунт
+  </div>
+</div>
+
+</div>
+
+<script>
+function showRegister() {
+  document.getElementById("loginForm").style.display = "none";
+  document.getElementById("registerForm").style.display = "block";
+}
+
+function showLogin() {
+  document.getElementById("registerForm").style.display = "none";
+  document.getElementById("loginForm").style.display = "block";
+}
+</script>
+
+</body>
+</html>

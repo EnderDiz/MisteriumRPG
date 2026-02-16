@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+{% load static %}
+<head>
+  <meta charset="UTF-8">
+  <title>Misterium RPG</title>
+  <link rel="stylesheet" href="{% static 'game/styles/style.css' %}">
+  <link rel="stylesheet" href="{% static 'game/styles/dark_style.css' %}">
+</head>
+
+<body>
+
+<div class="menu_bar">
+    <div class="navigation_bar">
+        <a href="{% url 'index' %}">Главная</a>
+        <a href="{% url 'guide' %}">Руководства</a>
+        <a href="{% url 'patchnote' %}">Список изменений</a>
+    </div>
+
+    <div class="authorization_bar">
+        {% if user.is_authenticated %}
+            <span>Вы вошли как {{ user.username }}</span>
+            <a href="{% url 'logout' %}">Выход</a>
+        {% else %}
+            <a href="/accounts/login/">Авторизация</a>
+        {% endif %}
+    </div>
+</div>
+
+<div class="container">
+    <h1 class="title">Misterium</h1>
+
+    <div class="menu">
+
+        {% if user.is_authenticated %}
+            <p>Вы авторизованы. Можно входить в игру.</p>
+            <button onclick="location.href='{% url 'main_menu' %}'">
+                ▶ Войти в игру
+            </button>
+
+        {% else %}
+            <p>Вы не авторизованы.</p>
+
+            <button onclick="location.href='{% url 'login' %}'">
+                Войти в аккаунт
+            </button>
+        {% endif %}
+
+    </div>
+</div>
+
+</body>
+</html>

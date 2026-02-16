@@ -1,0 +1,71 @@
+body {
+  background-color: #121212;
+  color: white;
+}
+
+.menu_bar {
+  background-color: #222;
+  color: white;
+}
+
+a {
+  color: #ccc;
+}
+
+.menu button {
+  background-color: #333;
+  color: white;
+}
+
+.menu button:hover {
+  background-color: #555;
+}
+
+.auth_page {
+  background-color: #121212;
+}
+
+/* карточка */
+.form_box {
+  background-color: #1e1e1e;
+  box-shadow: 0 0 30px rgba(0,0,0,0.6);
+}
+
+/* поля */
+.form_box input {
+  background-color: #2a2a2a;
+  color: white;
+}
+
+.form_box input:focus {
+  outline: none;
+  border-color: #888;
+}
+
+/* кнопки */
+.form_box button {
+  background-color: #333;
+  color: white;
+}
+
+.form_box button:hover {
+  background-color: #555;
+  cursor: pointer;
+}
+
+/* переключатель — выглядит как кнопка, но без cursor:pointer */
+.switch_btn {
+  margin-top: 10px;
+  font-size: 15px;
+  opacity: 0.85;
+  display: inline-block;
+}
+
+
+.switch_btn:hover {
+  opacity: 1;
+  text-decoration: none;
+  cursor: default;
+}
+
+
